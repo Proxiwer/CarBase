@@ -89,6 +89,16 @@ def shw():
             print(str(cnt)+" ",end='');print(*x)
     return
 
+def count():
+    os.system("clear")
+    cnt=0
+    with open(bp, "r") as file:
+        reader=csv.reader(file)
+        for x in reader:
+            cnt+=1
+        print("Количество авто на парковке: "+str(cnt))
+    return
+
 def srh():
     while True:
         temp=[]
@@ -305,12 +315,14 @@ def main():
         print("В базе "+str(cnt)+" элементов.")
     while True:
         print("")
-        cmnd=str(input("Функция (new,srh,shw,mod,del,ext): "))
+        cmnd=str(input("Функция (new,srh,cnt,shw,mod,del,ext): "))
         if cmnd=="new":
             new()
             os.system("clear")
         elif cmnd=="srh":
             srh()
+        elif cmnd=="cnt":
+            count()
         elif cmnd=="shw":
             shw()
         elif cmnd=="mod":
